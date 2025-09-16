@@ -7,8 +7,10 @@ LABEL "com.github.actions.color"="white"
 
 RUN dnf install unzip -y
 
+butler_url="https://github.com/podulator/butler-publish-itchio-action/raw/refs/heads/master/butler-linux-amd64.zip"
+
 # Install Butler
-RUN curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/15.24.0 \
+RUN curl -L -o butler.zip ${butler_url} \
     && unzip butler.zip \
     && cp butler /usr/bin \
     && chmod +x /usr/bin/butler
